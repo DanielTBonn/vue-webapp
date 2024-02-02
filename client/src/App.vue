@@ -2,11 +2,21 @@
 import HelloWorld from './components/HelloWorld.vue'
 import TheWelcome from './components/TheWelcome.vue'
 import TheCounter from './components/TheCounter.vue'
+import 'vue-router'
+
 </script>
 
 <template>
-  <header>
+  <div class="routing">
+    <p>Hello Router</p>
+    <router-link to="/home">Home Page</router-link>
+    <router-link to="/login">Login Screen</router-link>
+
+  </div>
+
+  <!-- <header>
     <img alt="Vue logo" class="logo" src="./assets/logo.svg" width="125" height="125" />
+
 
     <div class="wrapper">
       <HelloWorld msg="You did it!" />
@@ -19,7 +29,10 @@ import TheCounter from './components/TheCounter.vue'
 
   <div>
     <TheCounter />
-  </div>
+  </div> -->
+
+  <router-view></router-view>
+
 </template>
 
 <style scoped>

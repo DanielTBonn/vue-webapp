@@ -8,8 +8,25 @@ import {
     createHttpLink 
 } from '@apollo/client'
 import { setContext } from '@apollo/client/link/context';
+import { createRouter, createWebHashHistory } from 'vue-router';
+
+import Home from './components/Home.vue'
+import Login from './components/Login.vue'
+// import 'vue-router'
+
+const ExtraView = {
+  template: '<div>EXTRA VIEW</div>'
+}
 
 import App from './App.vue'
+
+const routes = [
+  { path: '/home', component: Home },
+  { path: '/login', component: Login},
+  { path: '/extra', component: ExtraView}
+]
+
+
 
 const httpLink = createHttpLink({
     uri: '/graphql'
@@ -40,5 +57,12 @@ const app = createApp({
     },
     render: () => h(App),
 })
+
+const router = createRouter({
+  history: createWebHashHistory(),
+  routes,
+})
+
+app.use(router)
 
 app.mount('#app')
