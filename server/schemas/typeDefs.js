@@ -26,7 +26,6 @@ const typeDefs = `
         addUser(username: String!, email: String!, password: String!): Auth
         addSavedItem(itemId: String!): SavedItem
     }
-
 `
 
 module.exports = typeDefs;
