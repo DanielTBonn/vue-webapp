@@ -7,15 +7,10 @@ import 'vue-router'
 import { fetchNews } from './utils/fetchNews.js'
 
 
-const news = fetchNews();
+const news = await fetchNews();
 
-console.log(news)
+console.log("news in vue", news)
 
-const promise = 
-news
-.then(result => console.log("this be result.data", result.articles))
-.then();
-console.log('this is the promise', promise)
 
 </script>
 
