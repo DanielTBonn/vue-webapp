@@ -4,6 +4,19 @@ import TheWelcome from './components/TheWelcome.vue'
 import TheCounter from './components/TheCounter.vue'
 import 'vue-router'
 
+import { fetchNews } from './utils/fetchNews.js'
+
+
+const news = fetchNews();
+
+console.log(news)
+
+const promise = 
+news
+.then(result => console.log("this be result.data", result.articles))
+.then();
+console.log('this is the promise', promise)
+
 </script>
 
 <template>
