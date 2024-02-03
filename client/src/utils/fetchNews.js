@@ -1,9 +1,8 @@
 import { API_KEY } from "../../apikey.js";
 
-// const API_KEY = '6f870b8e7ce9457585c341cdd23e3919'
+// Direct to https://newsapi.org/docs/get-started for more
 
 export async function fetchNews() {
-
     async function getJSON() {
         try {
             const response = await fetch(`https://newsapi.org/v2/everything?q=Apple&from=2024-02-02&sortBy=popularity&apiKey=${ API_KEY }`)

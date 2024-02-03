@@ -1,6 +1,6 @@
 import './assets/main.css'
 
-import { createApp, provide, h } from 'vue'
+import { createApp, provide, h, defineAsyncComponent } from 'vue'
 import { DefaultApolloClient } from '@vue/apollo-composable'
 import { 
     ApolloClient, 
