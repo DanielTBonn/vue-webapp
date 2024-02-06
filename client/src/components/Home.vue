@@ -1,26 +1,34 @@
 <script setup>
-import { nextTick, ref } from 'vue';
+import { nextTick, ref, onMounted } from 'vue';
 
-// import { fetchNews } from '../utils/fetchNews.js'
+import { fetchNews } from '../utils/fetchNews.js'
 
 
-// const news = await fetchNews();
+const newsList = ref(['hi'])
+onMounted(async () => {
+  console.log('mounted!')
+  newsList.value = await fetchNews();
+  
+  console.log("news in vue", newsList.value)
+})
 
-// // console.log("news in vue", news)
-
-// const string = ref('Home View')
 
 </script>
 
 <template>
-    <Suspense>
 
         <div>
             <p>Home</p>
         </div>
+        <!-- <div> News: {{ news }}</div> -->
+        <ul>
+            <li v-for="news in newsList">
+                <h1> <a :href="news.url" target="_blank">{{ news.title }}</a> <span> published at: {{ news.publishedAt }}</span> </h1>
+                
+                <h2>{{ news.author }} </h2>
+                <h3>{{ news.description }}</h3>
+                
+            </li>
+        </ul>
 
-        <template #fallback>
-            Loading...
-        </template>
-    </Suspense>
 </template>
